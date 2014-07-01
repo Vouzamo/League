@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Core.Models.Classes.AdministrativeBody>
+
+@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@section Title
+{
+    Administrative Bodies
+}
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>*@
+
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li><a href="#">Summer 2014</a></li>
+            <li><a href="#">Division A</a></li>
+            <li class="active">Home</li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#">Dashboard</a></li>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Seasons</a></li>
+            <li><a href="#">Divisions</a></li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        @*@Html.Partial("~/Views/Components/_Panel.cshtml")*@
+
+    </div>
+</div>
+
+@section Deferred
+{
+    <script type="text/javascript">
+        $('button').on('click', function() {
+            var context = $(this).closest('.panel').find('.panel-body');
+            console.log(context);
+
+            var url = $(context).data('panel-url');
+
+            $(context).html('<img src="/Images/ajax-loader.gif" class="centered" />');
+
+            $.get(url, function (data) {
+                $(context).html(data);
+            });
+        });
+    </script>
+}

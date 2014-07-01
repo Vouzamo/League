@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head
+{
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    @if (IsSectionDefined("Title"))
+    {
+        <title>@RenderSection("Title")</title>
+    }
+    else
+    {
+        <title>My Application</title>
+    }
+    
+    @if(IsSectionDefined("Styles"))
+    {
+        @RenderSection("Styles")
+    }
+
+    @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts")
+    }
+}
+
+@section NavBar
+{
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("League", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+}
+
+@if (IsSectionDefined("Header"))
+{
+    @RenderSection("Header")
+}
+
+@RenderBody()
+
+@if (IsSectionDefined("Footer"))
+{
+    @RenderSection("Footer")
+}
+
+@section Deferred
+{
+    @if (IsSectionDefined("Deferred"))
+    {
+        @RenderSection("Deferred")
+    }
+}
+

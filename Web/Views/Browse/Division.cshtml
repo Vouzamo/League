@@ -1,0 +1,57 @@
+﻿@using Core.Models.Classes
+@model Division
+
+@{
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+@section Title
+{
+    Season Division
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Season", "Browse", Model.Season.Id)">@Model.Season.Name</a>
+            </li>
+            <li class="active">@Model.Name</li>
+        </ol>
+    </div>
+</div>
+
+@* Division Details *@
+<div class="row">
+    <div class="col-md-12">
+        <h3>@Model.Name</h3>
+        <h4>@Model.ParticipationType @Model.CompetitionFormat <span class="label label-default">@Model.Sport</span></h4>
+    </div>
+</div>
+
+@* Fixture / Participant Details *@
+<div class="row">
+    <div class="col-md-6">
+        <ul class="list-group">
+            @foreach (Fixture fixture in Model.Fixtures.OrderByDescending(x => x.Legs.First().DateTime).Take(10))
+            {
+                <li class="list-group-item">
+                    <a href="@Url.Action("Fixture", "Browse", new { id = fixture.Id })">
+                        <span class="pull-left">@fixture.Legs.First().DateTime</span>
+                        <span class="pull-right">@fixture.Home.Name VS @fixture.Away.Name</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <ul class="list-group">
+            @foreach (Participant participant in Model.Partipants.GroupBy(x => x.Participation).Take(10))
+            {
+                <li class="list-group-item">
+                    <a href="@Url.Action("Participant", "Browse", new { id = @participant.Id })">@Model.Name</a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿@using Core.Models.Classes
+@model AdministrativeBody
+
+@{
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+@section Title
+{
+    @Model.Name &gt; Season Selector
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li class="active">@Model.Name</li>
+        </ol>
+    </div>
+</div>
+
+@* Division Details *@
+<div class="row">
+    <div class="col-md-12">
+        <h3>@Model.Name</h3>
+    </div>
+</div>
+
+@* Fixture / Participant Details *@
+<div class="row">
+    <div class="col-md-6">
+        <ul class="list-group">
+            @foreach (Season season in Model.Seasons.OrderByDescending(x => x.From).ThenByDescending(x => x.To).Take(10))
+            {
+                <li class="list-group-item">
+                    <a href="@Url.Action("Season", "Browse", new { id = season.Id })">@season.Name (@season.From.ToShortDateString() ~ @season.To.ToShortDateString())</a>
+                </li>
+            }
+        </ul>
+    </div>
+@*    <div class="col-md-6">
+        <ul class="list-group">
+            @foreach (Participant participant in Model.Partipants.GroupBy(x => x.Participation).Take(10))
+            {
+                <li class="list-group-item">
+                    <a href="@Url.Action("Participant", "Browse", new { id = @participant.Id })">@Model.Name</a>
+                </li>
+            }
+        </ul>
+    </div>*@
+</div>

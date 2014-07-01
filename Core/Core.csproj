@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E0F34FC4-E54B-49A6-9B0F-ECB12C81552E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\DataContext.cs" />
+    <Compile Include="Data\DataInitializer.cs" />
+    <Compile Include="Models\Classes\AdministrativeBody.cs" />
+    <Compile Include="Models\Classes\Division.cs" />
+    <Compile Include="Models\Classes\Fixture.cs" />
+    <Compile Include="Models\Classes\Leg.cs" />
+    <Compile Include="Models\Classes\Participant.cs" />
+    <Compile Include="Models\Classes\Result.cs" />
+    <Compile Include="Models\Classes\Score.cs" />
+    <Compile Include="Models\Classes\Season.cs" />
+    <Compile Include="Models\Classes\Statistic.cs" />
+    <Compile Include="Models\Classes\Team.cs" />
+    <Compile Include="Models\Classes\Venue.cs" />
+    <Compile Include="Models\Enums\CompetitionFormat.cs" />
+    <Compile Include="Models\Enums\Participation.cs" />
+    <Compile Include="Models\Enums\Sport.cs" />
+    <Compile Include="Models\Interfaces\IAdministrationService.cs" />
+    <Compile Include="Models\Interfaces\IAdministrativeBody.cs" />
+    <Compile Include="Models\Interfaces\ICompetition.cs" />
+    <Compile Include="Models\Interfaces\IFixture.cs" />
+    <Compile Include="Models\Interfaces\IFixtureLeg.cs" />
+    <Compile Include="Models\Interfaces\IParticipant.cs" />
+    <Compile Include="Models\Interfaces\IPlayer.cs" />
+    <Compile Include="Models\Interfaces\IResult.cs" />
+    <Compile Include="Models\Interfaces\ISeason.cs" />
+    <Compile Include="Models\Interfaces\IStatistic.cs" />
+    <Compile Include="Models\Interfaces\ITeam.cs" />
+    <Compile Include="Models\Interfaces\IVenue.cs" />
+    <Compile Include="Models\Classes\Individual.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AdministrationService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

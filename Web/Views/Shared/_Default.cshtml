@@ -1,0 +1,72 @@
+﻿@using System.Web.Optimization
+
+@{
+    Layout = "~/Views/Shared/_Bootstrap.cshtml";
+}
+
+@section Title
+{
+    @if (IsSectionDefined("Title"))
+    {
+        @RenderSection("Title")
+    }
+}
+
+@section Styles
+{
+    @Styles.Render("~/Global/Styles/Site")
+    @Styles.Render("~/Global/Styles/Bootstrap")
+    
+    @if (IsSectionDefined("Styles"))
+    {
+        @RenderSection("Styles")
+    }
+}
+
+@section Scripts
+{
+    @Scripts.Render("~/Global/Scripts/Modernizr")
+
+    @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts")
+    }
+}
+
+@section Header
+{
+    <header>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>League <small>You're in control!</small></h1>
+                </div>
+            </div>
+        </div>
+    </header>
+}
+
+@RenderBody()
+
+@section Footer
+{
+    <footer>
+        <div class="row">
+            <div class="col-md-12">
+                <p>&copy; @DateTime.Now.Year - League</p>
+            </div>
+        </div>
+    </footer>
+}
+
+@section Deferred
+{
+    @Scripts.Render("~/Global/Scripts/jQuery")
+    @Scripts.Render("~/Global/Scripts/jQueryValidate")
+    @Scripts.Render("~/Global/Scripts/Bootstrap")
+    
+    @if (IsSectionDefined("Deferred"))
+    {
+        @RenderSection("Deferred")
+    }
+}

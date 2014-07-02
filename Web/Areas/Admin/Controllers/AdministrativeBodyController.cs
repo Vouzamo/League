@@ -9,6 +9,7 @@ using Core.Data;
 
 namespace Web.Areas.Admin.Controllers
 {
+    [Authorize]
     public class AdministrativeBodyController : Controller
     {
         private DataContext db = new DataContext();

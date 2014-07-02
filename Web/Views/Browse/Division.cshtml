@@ -7,15 +7,15 @@
 
 @section Title
 {
-    Season Division
+    Browse &gt; @Model.Season.AdministrativeBody.Name &gt; @Model.Season.Name &gt; @Model.Name
 }
 
 <div class="row">
     <div class="col-md-12">
         <ol class="breadcrumb">
-            <li>
-                <a href="@Url.Action("Season", "Browse", Model.Season.Id)">@Model.Season.Name</a>
-            </li>
+            <li><a href="@Url.Action("Index", "Browse")">Browse</a></li>
+            <li><a href="@Url.Action("AdministrativeBody", "Browse", new { id = Model.Season.AdministrativeBody.Id })">@Model.Season.AdministrativeBody.Name</a></li>
+            <li><a href="@Url.Action("Season", "Browse", new { id = Model.Season.Id })">@Model.Season.Name</a></li>
             <li class="active">@Model.Name</li>
         </ol>
     </div>
@@ -25,7 +25,7 @@
 <div class="row">
     <div class="col-md-12">
         <h3>@Model.Name</h3>
-        <h4>@Model.ParticipationType @Model.CompetitionFormat <span class="label label-default">@Model.Sport</span></h4>
+        <h4>@Model.ParticipationType @Model.Sport @Model.CompetitionFormat</h4>
     </div>
 </div>
 

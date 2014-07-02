@@ -7,12 +7,13 @@
 
 @section Title
 {
-    @Model.Name &gt; Season Selector
+    Browse &gt; @Model.Name
 }
 
 <div class="row">
     <div class="col-md-12">
         <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index", "Browse")">Browse</a></li>
             <li class="active">@Model.Name</li>
         </ol>
     </div>

@@ -7,10 +7,10 @@ using System.Web;
 using System.Web.Mvc;
 using Core.Data;
 
-namespace Web.Areas.Admin.Controllers
+namespace Web.Controllers
 {
     [Authorize]
-    public class AdministrativeBodyController : Controller
+    public class AdminController : Controller
     {
         private DataContext db = new DataContext();
 
@@ -19,5 +19,5 @@ namespace Web.Areas.Admin.Controllers
         {
             return View(await db.AdministrativeBodies.ToListAsync());
         }
-	}
+    }
 }

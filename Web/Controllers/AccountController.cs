@@ -32,6 +32,16 @@ namespace Web.Areas.Admin.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if (Request.IsAuthenticated)
+            {
+                return RedirectToAction("Manage", "Account");
+            }
+
+            if (string.IsNullOrEmpty(returnUrl) && Request.UrlReferrer != null)
+            {
+                returnUrl = Request.UrlReferrer.PathAndQuery;
+            }
+
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

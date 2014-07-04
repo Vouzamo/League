@@ -1,8 +1,11 @@
-﻿@using System.Web.Optimization
-@model Core.Models.Classes.ExternalLoginConfirmationViewModel
+﻿@using Core.Models.Classes
+@model ExternalLoginConfirmationViewModel
+
 @{
+    Layout = "~/Views/Shared/_Admin.cshtml";
     ViewBag.Title = "Register";
 }
+
 <h2>@ViewBag.Title.</h2>
 <h3>Associate your @ViewBag.LoginProvider account.</h3>
 

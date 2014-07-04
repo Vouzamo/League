@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Web.Extensions
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -42,9 +44,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link 1</a></li>
-                    <li><a href="#">Link 2</a></li>
+                    @Html.MenuLink("Browse", "Index", "Browse")
+                    @Html.MenuLink("Search", "Index", "Search")
                 </ul>
+                @Html.Partial("~/Views/Account/_LoginPartial.cshtml")
             </div>
         </div>
     </nav>

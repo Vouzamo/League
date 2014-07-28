@@ -10,7 +10,7 @@ using Core.Models.Interfaces;
 namespace Core.Models.Classes
 {
     [Table("Team")]
-    public partial class Team : Participant
+    public class Team : Participant
     {
         public virtual ICollection<Individual> Players { get; set; }
     }

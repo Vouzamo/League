@@ -16,7 +16,7 @@ namespace Web.App_Start
             app.UseCookieAuthentication(new CookieAuthenticationOptions
                 {
                     AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                    LoginPath = new PathString("/Admin/Account/Login")
+                    LoginPath = new PathString("/Account/Login")
                 }
             );
 

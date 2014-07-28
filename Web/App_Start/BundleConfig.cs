@@ -11,7 +11,8 @@ namespace Web
             );
 
             bundles.Add(new StyleBundle("~/Global/Styles/Bootstrap").Include(
-                "~/Content/bootstrap.min.css")
+                "~/Content/bootstrap.min.css",
+                "~/Content/datepicker.css")
             );
 
             bundles.Add(new ScriptBundle("~/Global/Scripts/Modernizr").Include(
@@ -29,7 +30,8 @@ namespace Web
             );
 
             bundles.Add(new ScriptBundle("~/Global/Scripts/Bootstrap").Include(
-                "~/Scripts/bootstrap.min.js")
+                "~/Scripts/bootstrap.min.js",
+                "~/Scripts/bootstrap-datepicker.js")
             );
         }
     }

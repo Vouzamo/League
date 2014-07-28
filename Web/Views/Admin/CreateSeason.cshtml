@@ -1,0 +1,64 @@
+﻿@using Core.Models.Classes
+@model Season
+
+@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@section Title
+{
+    Admin &gt; New Season
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li>@Html.ActionLink("Admin", "Index")</li>
+            <li class="active">New Season</li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Season</h3>
+            </div>
+            <div class="panel-body">
+                @Html.Partial("_SeasonForm", Model)
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        @Html.ActionLink("Back to Seasons", "AdministrativeBody", null, new { id = Model.AdministrativeBodyId })
+    </div>
+</div>
+
+@section Deferred
+{
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $.validator.addMethod('date',
+            function (value, element) {
+                if (this.optional(element)) {
+                    return true;
+                }
+
+                var ok = true;
+                try {
+                    $.datepicker.parseDate('dd/mm/yyyy', value);
+                }
+                catch (err) {
+                    ok = false;
+                }
+                return ok;
+            });
+        });
+        $('.input-daterange').datepicker({
+            format: "dd/mm/yyyy",
+            multidate: true
+        });
+    </script>
+}

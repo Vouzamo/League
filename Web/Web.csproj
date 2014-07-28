@@ -133,27 +133,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datepicker.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Views\Shared\_Admin.cshtml" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.bootstrap.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Views\Shared\_Admin.cshtml" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Scripts\jquery.validate.bootstrap.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -166,15 +173,9 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\AdministrativeBodyController.cs" />
     <Compile Include="Controllers\BrowseController.cs" />
-    <Compile Include="Controllers\DivisionController.cs" />
-    <Compile Include="Controllers\FixtureController.cs" />
-    <Compile Include="Controllers\LegController.cs" />
-    <Compile Include="Controllers\SeasonController.cs" />
-    <Compile Include="Controllers\TeamController.cs" />
-    <Compile Include="Controllers\VenueController.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -183,46 +184,14 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\AdministrativeBody\Create.cshtml" />
-    <Content Include="Views\AdministrativeBody\Delete.cshtml" />
-    <Content Include="Views\AdministrativeBody\Details.cshtml" />
-    <Content Include="Views\AdministrativeBody\Edit.cshtml" />
-    <Content Include="Views\AdministrativeBody\Index.cshtml" />
     <Content Include="Views\Season\Create.cshtml" />
     <Content Include="Views\Season\Delete.cshtml" />
     <Content Include="Views\Season\Details.cshtml" />
     <Content Include="Views\Season\Edit.cshtml" />
     <Content Include="Views\Season\Index.cshtml" />
-    <Content Include="Views\Fixture\Create.cshtml" />
-    <Content Include="Views\Fixture\Delete.cshtml" />
-    <Content Include="Views\Fixture\Details.cshtml" />
-    <Content Include="Views\Fixture\Edit.cshtml" />
-    <Content Include="Views\Fixture\Index.cshtml" />
-    <Content Include="Views\Leg\Create.cshtml" />
-    <Content Include="Views\Leg\Delete.cshtml" />
-    <Content Include="Views\Leg\Details.cshtml" />
-    <Content Include="Views\Leg\Edit.cshtml" />
-    <Content Include="Views\Leg\Index.cshtml" />
-    <Content Include="Views\Division\Create.cshtml" />
-    <Content Include="Views\Division\Delete.cshtml" />
-    <Content Include="Views\Division\Details.cshtml" />
-    <Content Include="Views\Division\Edit.cshtml" />
-    <Content Include="Views\Division\Index.cshtml" />
-    <Content Include="Views\Team\Create.cshtml" />
-    <Content Include="Views\Team\Delete.cshtml" />
-    <Content Include="Views\Team\Details.cshtml" />
-    <Content Include="Views\Team\Edit.cshtml" />
-    <Content Include="Views\Team\Index.cshtml" />
-    <Content Include="Views\Venue\Create.cshtml" />
-    <Content Include="Views\Venue\Delete.cshtml" />
-    <Content Include="Views\Venue\Details.cshtml" />
-    <Content Include="Views\Venue\Edit.cshtml" />
-    <Content Include="Views\Venue\Index.cshtml" />
     <Content Include="Views\Shared\_Bootstrap.cshtml" />
-    <Content Include="Views\Components\_Panel.cshtml" />
     <Content Include="Views\Shared\_Default.cshtml" />
     <Content Include="Views\Browse\Season.cshtml" />
     <Content Include="Views\Browse\Division.cshtml" />
@@ -239,6 +208,14 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Account\_LoginPartial.cshtml" />
+    <Content Include="Views\Admin\AdministrativeBody.cshtml" />
+    <Content Include="Views\Admin\CreateAdministrativeBody.cshtml" />
+    <Content Include="Views\Admin\_AdministrativeBodyList.cshtml" />
+    <Content Include="Views\Admin\_AdministrativeBodyForm.cshtml" />
+    <Content Include="Views\Admin\_SeasonList.cshtml" />
+    <Content Include="Views\Admin\_SeasonForm.cshtml" />
+    <Content Include="Views\Admin\CreateSeason.cshtml" />
+    <Content Include="Views\Admin\Season.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

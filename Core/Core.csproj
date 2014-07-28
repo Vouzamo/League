@@ -82,7 +82,7 @@
     <Compile Include="Data\DataInitializer.cs" />
     <Compile Include="Models\Classes\AccountModels.cs" />
     <Compile Include="Models\Classes\AdministrativeBody.cs" />
-    <Compile Include="Models\Classes\ApplicationnUser.cs" />
+    <Compile Include="Models\Classes\ApplicationUser.cs" />
     <Compile Include="Models\Classes\Division.cs" />
     <Compile Include="Models\Classes\Fixture.cs" />
     <Compile Include="Models\Classes\Leg.cs" />

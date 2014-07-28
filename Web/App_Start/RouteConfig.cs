@@ -12,7 +12,7 @@ namespace Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { area = "", controller = "Home", action = "Index", id = UrlParameter.Optional },
+                defaults: new { area = "", controller = "Browse", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "Web.Controllers" }
             );
         }

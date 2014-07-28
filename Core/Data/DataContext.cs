@@ -38,8 +38,8 @@ namespace Core.Data
         public DbSet<Season> Seasons { get; set; }
         public DbSet<Division> Divisions { get; set; }
         public DbSet<Participant> Participants { get; set; }
-        public DbSet<Individual> Individuals { get; set; }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<Individual> Individuals { get; set; }
         public DbSet<Venue> Venues { get; set; }
         public DbSet<Fixture> Fixtures { get; set; }
         public DbSet<Leg> Legs { get; set; }

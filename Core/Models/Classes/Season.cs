@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core.Models.Interfaces;
 
 namespace Core.Models.Classes
 {
@@ -22,7 +17,9 @@ namespace Core.Models.Classes
 
         // Properties
         public string Name { get; set; }
+        [DataType(DataType.Date)]
         public DateTime From { get; set; }
+        [DataType(DataType.Date)]
         public DateTime To { get; set; }
         
         // Children

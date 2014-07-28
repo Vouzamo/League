@@ -1,0 +1,60 @@
+﻿@using Core.Models.Classes
+@model AdministrativeBody
+
+@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@section Title
+{
+    Admin &gt; @Model.Name
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li>@Html.ActionLink("Admin", "Index")</li>
+            <li class="active">@Model.Name</li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Administrative Body</h3>
+            </div>
+            <div class="panel-body">
+                @Html.Partial("_AdministrativeBodyForm", Model)
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Season(s)</h3>
+            </div>
+            @Html.Partial("_SeasonList", Model)
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Participant(s)</h3>
+            </div>
+            @*@Html.Partial("_ParticipantList", Model)*@
+        </div>
+    </div>
+</div>
+
+@*@section Deferred
+{
+    <script type="text/javascript">
+        $('input.form-control').each(function () {
+            var input = $(this);
+            input.keyup(function () {
+                var form = $(this).closest('form');
+                var submit = $(form).find('input[type="submit"]');
+                $(submit).removeClass('disabled');
+            });
+        });
+    </script>
+}*@

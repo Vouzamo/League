@@ -14,10 +14,71 @@ namespace Core.Data
     {
         protected override void Seed(DataContext context)
         {
+            Venue currentVenue = null;
+            AdministrativeBody currentAdministrativeBody = null;
+
+            foreach (var venue in GetVenues())
+            {
+                context.Venues.Add(venue);
+                currentVenue = venue;
+            }
+
             foreach (var administrativeBody in GetAdministrativeBody())
             {
                 context.AdministrativeBodies.Add(administrativeBody);
+                currentAdministrativeBody = administrativeBody;
             }
+
+            foreach (var participant in GetParticipants(currentVenue, currentAdministrativeBody))
+            {
+                context.Participants.Add(participant);
+            }
+        }
+
+        private static IEnumerable<Venue> GetVenues()
+        {
+            return new Collection<Venue>()
+                {
+                    new Venue()
+                        {
+                            Name = "Burnley Snooker Club"
+                        }
+                };
+        }
+
+        private static IEnumerable<Participant> GetParticipants(Venue venue, AdministrativeBody administrativeBody)
+        {
+            return new Collection<Participant>()
+                {
+                    new Team()
+                        {
+                            Participation = Participation.Team,
+                            Name = "Burnley Snooker B",
+                            Venue = venue,
+                            Players = new Collection<Individual>()
+                                {
+                                    new Individual()
+                                        {
+                                            Participation = Participation.Individual,
+                                            FirstName = "John",
+                                            Name = "Askew",
+                                            Handicap = -15,
+                                            Venue = venue,
+                                            AdministrativeBody = administrativeBody
+                                        },
+                                    new Individual()
+                                        {
+                                            Participation = Participation.Individual,
+                                            FirstName = "Paul",
+                                            Name = "Stevens",
+                                            Handicap = 10,
+                                            Venue = venue,
+                                            AdministrativeBody = administrativeBody
+                                        }
+                                },
+                            AdministrativeBody = administrativeBody
+                        }
+                };
         }
 
         private static IEnumerable<AdministrativeBody> GetAdministrativeBody()
@@ -51,7 +112,7 @@ namespace Core.Data
                                         {
                                             Name = "Summer",
                                             From = new DateTime(2014,3,15),
-                                            To = new DateTime(2014, 7, 16),
+                                            To = new DateTime(2014,7,16),
                                             Divisions = new Collection<Division>()
                                         }
                                 }

@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core.Models.Interfaces;
 
 namespace Core.Models.Classes
 {
@@ -18,14 +14,38 @@ namespace Core.Models.Classes
         // Foreign Key(s)
         public Guid DivisionId { get; set; }
         public virtual Division Division { get; set; }
-
-        // Properties
+        public Guid HomeId { get; set; }
         public virtual Participant Home { get; set; }
+        public Guid AwayId { get; set; }
         public virtual Participant Away { get; set; }
 
         // Children
         public virtual ICollection<Leg> Legs { get; set; }
 
-        //public Participant Winner { get; set; }
+        // Properties
+
+
+        // Methods
+        public Result Result
+        {
+            get
+            {
+                Result result = new Result();
+
+                foreach (Leg leg in Legs)
+                {
+                    Result legResult = leg.Result;
+
+                    // Here is where a score object could manipulate the calculation
+                    if (legResult != null)
+                    {
+                        result.HomeScore += leg.Result.HomeScore;
+                        result.AwayScore += leg.Result.HomeScore;
+                    }
+                }
+
+                return result;
+            }
+        }
     }
 }

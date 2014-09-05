@@ -1,0 +1,10 @@
+﻿@using Core.Models.Classes
+@model IEnumerable<AdministrativeBody>
+
+<div class="list-group">
+    @foreach (AdministrativeBody administrativeBody in Model)
+    {
+        @Html.ActionLink(administrativeBody.Name, "AdministrativeBody", new { id = administrativeBody.Id }, new { @class = "list-group-item" })
+    }
+    @Html.ActionLink("New", "CreateAdministrativeBody", null, new { @class = "list-group-item" })
+</div>

@@ -1,0 +1,32 @@
+﻿@using Core.Models.Classes
+@model IEnumerable<AdministrativeBody>
+
+@{
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+@section Title
+{
+    Browse
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li class="active">Browse</li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <ul class="list-group">
+            @foreach (AdministrativeBody body in Model.OrderBy(x => x.Name).Take(10))
+            {
+                <li class="list-group-item">
+                    <a href="@Url.Action("AdministrativeBody", "Browse", new { id = @body.Id })">@body.Name</a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

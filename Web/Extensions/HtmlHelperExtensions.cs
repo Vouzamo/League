@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Mvc.Html;
-using System.Web.Routing;
 
 namespace Web.Extensions
 {
@@ -11,10 +9,10 @@ namespace Web.Extensions
         {
             var builder = new TagBuilder("li");
 
-            var currentAction = htmlHelper.ViewContext.RouteData.GetRequiredString("action");
+            //var currentAction = htmlHelper.ViewContext.RouteData.GetRequiredString("action");
             var currentController = htmlHelper.ViewContext.RouteData.GetRequiredString("controller");
 
-            if (controllerName == currentController && actionName == currentAction)
+            if (controllerName == currentController)
             {
                 builder.AddCssClass("active");
             }

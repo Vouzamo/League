@@ -1,0 +1,21 @@
+﻿@using System.Web.UI.WebControls.WebParts
+@using Core.Models.Classes
+@using Core.Models.Enums
+@model Division
+
+@using (Html.BeginForm("DivisionParticipants", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" role="form">
+        @Html.HiddenFor(model => model.Id)
+        @foreach (Participant participant in Model.Season.AdministrativeBody.Participants.Where(x => x.Participation == Model.ParticipationType))
+        {
+            <div class="form-group">
+                <input type="checkbox" name="participantIds" value="@participant.Id" @(Model.Partipants.Contains(participant) ? "checked" : string.Empty) />
+                @participant.Name
+            </div>
+        }
+        <input type="submit" class="btn btn-primary" value="Update" />
+    </div>
+}

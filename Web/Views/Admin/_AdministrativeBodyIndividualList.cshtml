@@ -1,0 +1,15 @@
+﻿@using Core.Models.Classes
+@using Core.Models.Enums
+@model AdministrativeBody
+
+<div class="list-group">
+    @foreach (Individual individual in Model.Participants.Where(x => x.Participation == Participation.Individual).Take(10))
+    {
+        @Html.ActionLink(individual.FirstName + " " + individual.Surname + "(" + individual.Handicap + ")", "Individual", new { id = individual.Id }, new { @class = "list-group-item" })
+    }
+    @if (Model.Participants.Where(x => x.Participation == Participation.Individual).Skip(10).Any())
+    {
+        @Html.ActionLink("...", "Individuals", new { id = Model.Id }, new { @class = "list-group-item" })
+    }
+    @Html.ActionLink("New Individual", "CreateIndividual", new { id = Model.Id }, new { @class = "list-group-item" })
+</div>

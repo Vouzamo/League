@@ -1,0 +1,10 @@
+﻿@using Core.Models.Classes
+@model Season
+
+<div class="list-group">
+    @foreach (Division division in Model.Divisions)
+    {
+        @Html.ActionLink(division.Name, "Division", new { id = division.Id }, new { @class = "list-group-item" })
+    }
+    @Html.ActionLink("New", "CreateDivision", new { id = Model.Id }, new { @class = "list-group-item" })
+</div>

@@ -1,0 +1,51 @@
+﻿@using Core.Models.Classes
+@model Division
+
+@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@section Title
+{
+    Admin &gt; @Model.Season.AdministrativeBody.Name &gt; @Model.Season.Name &gt; @Model.Name
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li>@Html.ActionLink("Admin", "Index")</li>
+            <li>@Html.ActionLink(Model.Season.AdministrativeBody.Name, "AdministrativeBody", new { id = Model.Season.AdministrativeBody.Id })</li>
+            <li>@Html.ActionLink(Model.Season.Name, "Season", new { id = Model.Season.Id })</li>
+            <li class="active">@Model.Name</li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Division</h3>
+            </div>
+            <div class="panel-body">
+                @Html.Partial("_DivisionForm", Model)
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        @if (ViewData.ModelState.IsValid)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Participants(s)</h3>
+                </div>
+                @Html.Partial("_DivisionParticipantList", Model)
+            </div>
+        }
+        @*        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Fixture(s)</h3>
+            </div>
+            @Html.Partial("_FixtureList", Model)
+        </div>*@
+    </div>
+</div>

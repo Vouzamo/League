@@ -1,0 +1,32 @@
+﻿@using Core.Models.Classes
+@model IEnumerable<AdministrativeBody>
+
+@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@section Title
+{
+    Admin &gt; Administrative Bodies
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li class="active">Admin</li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Administrative Bodies</h3>
+            </div>
+            @Html.Partial("_AdministrativeBodyList", Model)
+        </div>
+    </div>
+    <div class="col-md-6">
+        <p>Blah blah blah</p>
+    </div>
+</div>

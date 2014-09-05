@@ -11,7 +11,7 @@ namespace Core.Models.Classes
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
-        //public virtual ICollection<Division> Divisions { get; set; }
+        public virtual ICollection<Division> Divisions { get; set; }
         //public virtual ICollection<Fixture> Fixtures { get; set; } 
 
         public string Name { get; set; }

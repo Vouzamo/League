@@ -144,5 +144,93 @@ namespace Web.Controllers
         }
 
         #endregion
+
+        #region Division
+
+        // GET: /Admin/CreateSeason
+        public ActionResult CreateDivision(Guid id)
+        {
+            return View(new Division() { SeasonId = id });
+        }
+
+        // POST: /Admin/CreateSeason
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CreateDivision([Bind(Include = "SeasonId,Name,Sport,CompetitionFormat,ParticipationType")] Division division)
+        {
+            if (ModelState.IsValid)
+            {
+                division.Id = Guid.NewGuid();
+
+                db.Divisions.Add(division);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Division", new { id = division.Id });
+            }
+
+            return View(division);
+        }
+
+        // GET: /Admin/Season/5
+        public async Task<ActionResult> Division(Guid? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Division division = await db.Divisions.FindAsync(id);
+            if (division == null)
+            {
+                return HttpNotFound();
+            }
+            return View(division);
+        }
+
+        // POST: /Admin/Season/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Division([Bind(Include = "Id,SeasonId,Name,Sport,CompetitionFormat,ParticipationType")] Division division)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(division).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Division", new { id = division.Id });
+            }
+            return View(division);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DivisionParticipants(Guid? id, List<Guid> participantIds)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Division division = await db.Divisions.FindAsync(id);
+            if (division == null)
+            {
+                return HttpNotFound();
+            }
+            division.Partipants.Clear();
+            foreach (Guid participantId in participantIds)
+            {
+                Participant participant = await db.Participants.FindAsync(participantId);
+                if (participant != null)
+                {
+                    //participant.Divisions.Add(division);
+                    division.Partipants.Add(participant);
+                }
+            }
+            db.Entry(division).State = EntityState.Modified;
+            await db.SaveChangesAsync();
+            return RedirectToAction("Division", new { id = division.Id });
+        }
+
+        #endregion
     }
 }

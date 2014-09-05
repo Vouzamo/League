@@ -1,17 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core.Models.Interfaces;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Models.Classes
 {
-    public class Result : IResult
+    public class Result
     {
+        // Primary Key
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
-        public IFixture Fixture { get; set; }
-        public IParticipant Winner { get; set; }
-        public IEnumerable<IStatistic> Statistics { get; set; }
+
+        // Foreign Key(s)
+        public Guid LegId { get; set; }
+        public virtual Leg Leg { get; set; }
+
+        // Properties
+        public int HomeScore { get; set; }
+        public int AwayScore { get; set; }
     }
 }

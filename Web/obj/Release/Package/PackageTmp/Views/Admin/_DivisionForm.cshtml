@@ -1,0 +1,55 @@
+﻿@using Core.Models.Classes
+@model Division
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal" role="form">
+        @Html.ValidationSummary(true)
+        
+        @if (!ViewData.ModelState.IsValid)
+        {
+            @Html.HiddenFor(model => model.Id)
+        }
+        @Html.HiddenFor(model => model.SeasonId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Name, new { @class="form-control" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sport, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.EnumDropDownListFor(model => model.Sport, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Sport)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CompetitionFormat, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.EnumDropDownListFor(model => model.CompetitionFormat, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CompetitionFormat)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.ParticipationType, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.EnumDropDownListFor(model => model.ParticipationType, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ParticipationType)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

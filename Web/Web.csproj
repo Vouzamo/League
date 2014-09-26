@@ -224,6 +224,7 @@
     <Content Include="Views\Admin\_AdministrativeBodyTeamList.cshtml" />
     <Content Include="Views\Admin\_AdministrativeBodyIndividualList.cshtml" />
     <Content Include="Views\Admin\_DivisionParticipantList.cshtml" />
+    <Content Include="Views\Admin\_FixtureList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -19,10 +19,12 @@ namespace Core.Models.Classes
         public virtual Participant Home { get; set; }
         public Guid AwayId { get; set; }
         public virtual Participant Away { get; set; }
-        public Guid ResultId { get; set; }
-        public virtual Result Result { get; set; }
+        //public Guid ResultId { get; set; }
+        //public virtual Result Result { get; set; }
 
         // Properties
         public DateTime DateTime { get; set; }
+        public int HomeScore { get; set; }
+        public int AwayScore { get; set; }
     }
 }

@@ -23,18 +23,7 @@ namespace Core.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
-
-            //modelBuilder.Entity<Season>()
-            //            .HasRequired(x => x.AdministrativeBody)
-            //            .WithMany(y => y.Seasons)
-            //            .HasForeignKey(x => x.AdministrativeBodyId)
-            //            .WillCascadeOnDelete(true);
-
-            //modelBuilder.Entity<Competition>()
-            //            .HasRequired(x => x.Season)
-            //            .WithMany(y => y.Competitions)
-            //            .HasForeignKey(x => x.SeasonId)
-            //            .WillCascadeOnDelete(true);
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
 
         public DbSet<AdministrativeBody> AdministrativeBodies { get; set; }

@@ -34,14 +34,9 @@ namespace Core.Models.Classes
 
                 foreach (Leg leg in Legs)
                 {
-                    Result legResult = leg.Result;
-
                     // Here is where a score object could manipulate the calculation
-                    if (legResult != null)
-                    {
-                        result.HomeScore += leg.Result.HomeScore;
-                        result.AwayScore += leg.Result.HomeScore;
-                    }
+                    result.HomeScore += leg.HomeScore;
+                    result.AwayScore += leg.HomeScore;
                 }
 
                 return result;

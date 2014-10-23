@@ -46,10 +46,10 @@
     </div>
     <div class="col-md-6">
         <ul class="list-group">
-            @foreach (Participant participant in Model.Partipants.GroupBy(x => x.Participation).Take(10))
+            @foreach (Participant participant in Model.Partipants.Where(x => x.Participation == Model.ParticipationType).ToList())
             {
                 <li class="list-group-item">
-                    <a href="@Url.Action("Participant", "Browse", new { id = @participant.Id })">@Model.Name</a>
+                    <a href="@Url.Action("Participant", "Browse", new { id = @participant.Id })">@participant.Name</a>
                 </li>
             }
         </ul>

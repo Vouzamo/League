@@ -8,7 +8,7 @@
     <div class="form-horizontal" role="form">
         @Html.ValidationSummary(true)
         
-        @if (!ViewData.ModelState.IsValid)
+        @if (ViewData.ModelState.IsValid)
         {
             @Html.HiddenFor(model => model.Id)
         }

@@ -32,17 +32,20 @@
         </div>
     </div>
     <div class="col-md-6">
-@*        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Participants(s)</h3>
+        @if (ViewData.ModelState.IsValid)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Participants(s)</h3>
+                </div>
+                @Html.Partial("_DivisionParticipantList", Model)
             </div>
-            @Html.Partial("_DivisionParticipantList", Model)
-        </div>*@
-@*        <div class="panel panel-default">
+        }
+        <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Fixture(s)</h3>
             </div>
             @Html.Partial("_FixtureList", Model)
-        </div>*@
+        </div>
     </div>
 </div>

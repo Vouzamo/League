@@ -1,0 +1,18 @@
+﻿@using Core.Models.Classes
+@model Division
+
+<div class="list-group">
+    @foreach (Fixture fixture in Model.Fixtures.OrderByDescending(x => x.Legs.FirstOrDefault(y => y.DateTime > DateTime.MinValue).DateTime).Take(10))
+    {
+        @Html.ActionLink(fixture.Home.Name + " vs " + fixture.Away.Name, "Fixture", new { id = fixture.Id }, new { @class = "list-group-item" })
+    }
+    @if (Model.Fixtures.Skip(10).Any())
+    {
+        @Html.ActionLink("...", "Fixtures", new { id = Model.Id }, new { @class = "list-group-item" })
+    }
+    @Html.ActionLink("New", "CreateFixture", new { id = Model.Id }, new { @class = "list-group-item" })
+    @if (!Model.Fixtures.Any())
+    {
+        @Html.ActionLink("Generator", "GenerateFixtures", new { id = Model.Id }, new { @class = "list-group-item" })
+    }
+</div>

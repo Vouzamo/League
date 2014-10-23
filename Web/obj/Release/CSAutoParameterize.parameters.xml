@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="League-Web.config Connection String" description="League Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\league.mdf;Integrated Security=True" tags="SqlConnectionString">
+  <parameter name="League-Web.config Connection String" description="League Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:qfxb1g8v1z.database.windows.net,1433;Database=Vouzamo;User ID=VouzamoDB@qfxb1g8v1z;Password=Ch8rl0tt3;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Projects\\Git\\League\\Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='League']/@connectionString" />
   </parameter>
 </parameters>

@@ -9,9 +9,11 @@
         @Html.HiddenFor(model => model.Id)
         @foreach (Participant participant in Model.Season.AdministrativeBody.Participants.Where(x => x.Participation == Model.ParticipationType))
         {
-            <div class="form-group">
-                <input type="checkbox" name="participantIds" class="" value="@participant.Id" @(Model.Partipants.Contains(participant) ? "checked" : string.Empty) />
-                @participant.Name
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="participantIds" class="" value="@participant.Id" @(Model.Partipants.Contains(participant) ? "checked" : string.Empty) />
+                    @participant.Name
+                </label>
             </div>
         }
         <input type="submit" class="btn btn-primary" value="Update" />
